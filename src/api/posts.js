@@ -1,4 +1,4 @@
-const sleep = n => new Promise(resolve => setTimeout(resolve.n));
+const sleep = n => new Promise(resolve => setTimeout(resolve, n));
 
 const posts = [
     { id: 1, title: 'react', description: '리액트 배우기' },

@@ -1,0 +1,19 @@
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getPosts } from '../modules/posts';
+import PostList from '../components/PostList';
+
+function PostListContainer() {
+    const { data, loading, error } = useSelector(state => state.posts.posts);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getPosts());
+    }, [dispatch]);
+
+    if (loading) return <div>loading...</div>
+    if (error) return <div>something wrong!!!</div>
+    if (!data) return null;
+
+    return <PostList posts={data} />
+}
+export default PostListContainer;
