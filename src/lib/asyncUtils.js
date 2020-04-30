@@ -31,33 +31,6 @@ export const createPromiseSagaById = (type, promiseCreator) => {
     };
 };
 
-// export const createPromiseThunk = (type, promiseCreater) => {
-//     const [SUCCESS, ERROR] = [`${type}_SUCCESS`, `${type}_ERROR`];
-//     return param => async dispatch => {
-//         dispatch({ type });
-//         try {
-//             const payload = await promiseCreater(param);
-//             dispatch({ type: SUCCESS, payload });
-//         } catch (e) {
-//             dispatch({ type: ERROR, payload: e, error: true });
-//         }
-//     }
-// }
-// const defaultIdSelector = param => param;
-// export const createPromiseThunkById = (type, promiseCreater, idSelector = defaultIdSelector) => {
-//     const [SUCCESS, ERROR] = [`${type}_SUCCESS`, `${type}_ERROR`];
-//     return param => async dispatch => {
-//         const id = idSelector(param);
-//         dispatch({ type, meta: id });
-//         try {
-//             const payload = await promiseCreater(param);
-//             dispatch({ type: SUCCESS, payload, meta: id });
-//         } catch (e) {
-//             dispatch({ type: ERROR, payload: e, error: true, meta: id });
-//         }
-//     }
-// }
-
 export const handledAsyncActions = (type, key, keepData) => {
     const [SUCCESS, ERROR] = [`${type}_SUCCESS`, `${type}_ERROR`];
     return (state, action) => {
